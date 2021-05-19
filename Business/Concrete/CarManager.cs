@@ -43,11 +43,7 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailDto>> getCarDetail()
         {
-            if (DateTime.Now.Hour == 16)
-            {
-                return new ErrorDataResult<List<CarDetailDto>>(Messages.MaintenanceTime);
-            }
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.getCarDetail());
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.getCarDetail(), Messages.CarsListed);
         }
 
         public IDataResult<List<Car>> GetCarsByBrandId(int id)
